@@ -1,7 +1,8 @@
 pipeline{
     environment {
         IMAGE_NAME = "alpinehelloworld"
-        IMAGE_TAG = "latest"
+        IMAGE_TAG = "v2"
+        PREFIX_IMAGE = "abodojustin"
         STAGING = "jenkins-francis-staging"
         PRODUCTION = "jenkins-francis-production"
     }
