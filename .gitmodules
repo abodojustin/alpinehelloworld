@@ -1,0 +1,3 @@
+[submodule "alpinehelloworld"]
+	path = alpinehelloworld
+	url = https://github.com/abodojustin/jenkins-training.git
