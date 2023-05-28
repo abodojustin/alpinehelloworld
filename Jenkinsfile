@@ -1,4 +1,5 @@
-pipeline{
+
+pipeline {
     environment {
         IMAGE_NAME = "alpinehelloworld"
         IMAGE_TAG = "v2"
@@ -20,9 +21,9 @@ pipeline{
             agent any
             steps {
                 script {
-                    sh '''
+                    sh ''
                         curl http://3.95.39.174 | grep -q "Hello world!"
-                    '''
+                    ''
                 }
             }
         }
@@ -30,10 +31,10 @@ pipeline{
             agent any
             steps {
                 script {
-                    sh '''
+                    sh ''
                         docker run --name $IMAGE_NAME -d -p 80:5000 -e PORT=5000 $PREFIX_IMAGE/$IMAGE_NAME:$IMAGE_TAG
                         sleep 10
-                    '''
+                    ''
                 }
             }
         }
@@ -42,9 +43,9 @@ pipeline{
             steps {
                 script {
                     /* groovylint-disable-next-line GStringExpressionWithinString */
-                    sh '''
+                    sh ''
                         docker rm -f ${IMAGE_NAME}
-                    '''
+                    ''
                 }
             }
         }
@@ -58,12 +59,12 @@ pipeline{
             }
             steps {
                 script {
-                    sh '''
+                    sh ''
                         heroku container:login
                         heroku create $STAGING || echo "projetc already exist"
                         heroku container:push -a $STAGING web
                         heroku container:release -a $STAGING web
-                    '''
+                    ''
                 }
             }
         }
@@ -77,12 +78,12 @@ pipeline{
             }
             steps {
                 script {
-                    sh '''
+                    sh ''
                         heroku container:login
                         heroku create $PRODUCTION || echo "projetc already exist"
                         heroku container:push -a $PRODUCTION web
                         heroku container:release -a $PRODUCTION web
-                    '''
+                    ''
                 }
             }
         }
