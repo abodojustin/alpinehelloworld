@@ -1,6 +1,7 @@
 /* import shared library */
-@Library('francis-shared-library')
-pipeline{
+@Library('francis-shared-library')_
+
+pipeline {
     environment {
         IMAGE_NAME = "alpinehelloworld"
         IMAGE_TAG = "v2"
