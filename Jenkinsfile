@@ -1,6 +1,3 @@
-/* import shared library */
-@Library('francis-shared-library')_
-
 pipeline {
     environment {
         IMAGE_NAME = "alpinehelloworld"
@@ -86,15 +83,6 @@ pipeline {
                         heroku container:release -a $PRODUCTION web
                     '''
                 }
-            }
-        }
-    }
-    post {
-        always {
-            script {
-                /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
-                clean
-                slackNotifier currentBuild.result
             }
         }
     }
