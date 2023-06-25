@@ -47,7 +47,7 @@ pipeline {
                 }
             }
         }
-        stage('Push Image in Staging And Deploy It') {
+        /* stage('Push Image in Staging And Deploy It') {
             when {
                 expression { GIT_BRANCH == 'origin/master' }
             }
@@ -84,6 +84,6 @@ pipeline {
                     '''
                 }
             }
-        }
+        } */
     }
 }
